@@ -145,9 +145,12 @@ public class HVAC {
 
         //What type of thing needs servicing?
 
+        //added option for water heater
+
         System.out.println("1. Add service call for furnace");
         System.out.println("2. Add service call for AC unit");
-        System.out.println("3. Quit");
+        System.out.println("3. Add service call for Water Heater");
+        System.out.println("4. Quit");
 
         int choice = getPositiveIntInput();
 
@@ -192,8 +195,22 @@ public class HVAC {
 
             }
             case 3: {
-                return;
+                //water heater stuff, folowed a similar process to the AC case done by clara
+                System.out.println("What address is the water heater located?");
+                String address = getStringInput();
 
+                System.out.println("What is your water heater having issues with?");
+                String issues = getStringInput();
+
+                System.out.println("How many months old is your water heater?");
+                int age = getPositiveIntInput();
+
+                WaterHeater wh = new WaterHeater(address, issues, new Date(), age);
+                todayServiceCalls.add(wh);
+                System.out.println("New Water Heater added:\n" + wh);
+            }
+            case 4: {
+                return;
             }
             default: {
                 System.out.println("Enter a number from the menu choices");

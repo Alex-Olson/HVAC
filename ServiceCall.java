@@ -57,7 +57,6 @@ public class ServiceCall {
         this.problemDescription = problemDescription;
     }
 
-
     public String getResolution() {
         return resolution;
     }
